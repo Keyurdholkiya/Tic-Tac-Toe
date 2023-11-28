@@ -2,6 +2,7 @@ package com.example.tic_tac_toe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -40,6 +41,10 @@ int count1=0;
     }
     public void check(View v){
         Animation scale1 = AnimationUtils.loadAnimation(this,R.anim.scale1);
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.win);
+        TextView winTextView = dialog.findViewById(R.id.winTextView);
+        Button winButton = dialog.findViewById(R.id.winButton);
         Button buttonCurrent = (Button) v;
         if(buttonCurrent.getText().toString().equals("")) {
             count1++;
@@ -63,54 +68,128 @@ int count1=0;
                     btn1.startAnimation(scale1);
                     btn2.startAnimation(scale1);
                     btn3.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b1+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b1, Toast.LENGTH_LONG).show();
                     restart();
                 } else if (b4.equals(b5) && b5.equals(b6) && !b4.equals("")) {
                     btn4.startAnimation(scale1);
                     btn5.startAnimation(scale1);
                     btn6.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b4+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b4, Toast.LENGTH_LONG).show();
                     restart();
                 } else if (b7.equals(b8) && b8.equals(b9) && !b7.equals("")) {
                     btn7.startAnimation(scale1);
                     btn8.startAnimation(scale1);
                     btn9.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b7+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b7, Toast.LENGTH_LONG).show();
                     restart();
                 } else if (b1.equals(b4) && b4.equals(b7) && !b1.equals("")) {
                     btn1.startAnimation(scale1);
                     btn4.startAnimation(scale1);
                     btn7.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b1+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b1, Toast.LENGTH_LONG).show();
                     restart();
                 } else if (b2.equals(b5) && b5.equals(b8) && !b2.equals("")) {
                     btn2.startAnimation(scale1);
                     btn5.startAnimation(scale1);
                     btn8.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b2+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b2, Toast.LENGTH_LONG).show();
                     restart();
                 } else if (b3.equals(b6) && b6.equals(b9) && !b3.equals("")) {
                     btn3.startAnimation(scale1);
                     btn6.startAnimation(scale1);
                     btn9.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b3+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b3, Toast.LENGTH_LONG).show();
                     restart();
                 } else if (b1.equals(b5) && b5.equals(b9) && !b1.equals("")) {
                     btn1.startAnimation(scale1);
                     btn5.startAnimation(scale1);
                     btn9.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b1+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b1, Toast.LENGTH_LONG).show();
                     restart();
                 } else if (b3.equals(b5) && b5.equals(b7) && !b3.equals("")) {
                     btn3.startAnimation(scale1);
                     btn5.startAnimation(scale1);
                     btn7.startAnimation(scale1);
+                    dialog.show();
+                    winTextView.setText(b3+ "Win..!!!");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     Toast.makeText(this, "winner..!! " + b3, Toast.LENGTH_LONG).show();
                     restart();
                 }else if (!b1.equals("")&&!b2.equals("")&&!b3.equals("")&&!b4.equals("")&&
                 !b5.equals("")&&!b6.equals("")&&!b7.equals("")&&!b8.equals("")&&!b9.equals("")){
-                    Toast.makeText(this,"Draw...!!! keyur game",Toast.LENGTH_LONG).show();
+                    dialog.show();
+                    winTextView.setText("Draw game");
+                    winTextView.setAnimation(scale1);
+                    winButton.setText("RESET");
+                    winButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                     restart();
+                    Toast.makeText(this,"Draw...!!! keyur game",Toast.LENGTH_LONG).show();
                 }
 //                else if (count1==9){
 //                    restart();

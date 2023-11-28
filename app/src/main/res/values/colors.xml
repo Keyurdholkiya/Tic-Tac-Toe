@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lyColor">#D5BD76</color>
     <color name="ButtonColor">#6ED1DD</color>
+    <color name="winBackground">#6D7EDC</color>
 </resources>
